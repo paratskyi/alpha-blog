@@ -5,7 +5,7 @@
     %tr
       %th Title
       %th Description
-      %th Action
+      %th{colspan: 3} Action
   %tbody
     - @articles.each do |article|
       %tr
@@ -13,4 +13,8 @@
         %td= article.description
         %td= link_to 'Show', article
         %td= link_to 'Edit', edit_article_path(article)
-        %td= link_to 'Delete', article, method: :delete
+        %td= link_to 'Delete', article, method: :delete, data: {confirm: 'Are you sure?'}
+%p
+  = link_to 'Create new article', new_article_path
+  |
+  = link_to 'Return to home page', :root
