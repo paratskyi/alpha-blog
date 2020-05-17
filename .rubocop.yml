@@ -12,5 +12,5 @@ Style/FrozenStringLiteralComment:
 Style/Documentation:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
     IgnoredPatterns: ['(\A|\s)#']
