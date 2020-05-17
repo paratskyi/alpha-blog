@@ -1,0 +1,14 @@
+%h1 Article listing page
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Action
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= article.title  
+        %td= article.description
+        %td Placeholder
