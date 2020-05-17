@@ -11,4 +11,6 @@
       %tr
         %td= article.title  
         %td= article.description
-        %td Placeholder
+        %td= link_to 'Show', article
+        %td= link_to 'Edit', edit_article_path(article)
+        %td= link_to 'Delete', article, method: :delete
