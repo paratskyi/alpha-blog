@@ -1,5 +1,12 @@
-%h1 Home
+#page-content
+  #home-container.container
+    .jumbotron.text-center.text-white
+      %h1.display-4 Alpha Blog
+      %p.lead This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+      %hr.my-4
+      %p It uses utility classes for typography and spacing to space content out within the larger container.
+      %a.btn.btn-success.btn-lg{:href => "#", :role => "button"} Sign up!
 
-= link_to 'Articles listing', :articles
-|
-= link_to 'About page', :about
+%footer#sticky-footer.py-4.bg-dark.text-white
+  .container.text-center
+    %small Copyright © Your Website
