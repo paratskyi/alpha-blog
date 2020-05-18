@@ -9,7 +9,7 @@
           .card-header.font-italic
             by Mashrur Hossain
           .card-body
-            %h5.card-title= link_to article.title, article_path(article), class: "text-success"
+            %h5.card-title= link_to article.title, article, class: "text-success"
             %p.card-text= truncate(article.description, length: 100)
             = link_to "View", article, class: "btn btn-outline-success"
             = link_to "Edit", edit_article_path(article), class: "btn btn-outline-info"
