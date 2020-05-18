@@ -4,16 +4,14 @@
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
-      %li.nav-item.active
-        = link_to "Articles", :articles, class: "nav-link"
       %li.nav-item
         %a.nav-link{:href => "#"} Link
       %li.nav-item.dropdown
         %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-          Dropdown
+          Articles
         .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-          %a.dropdown-item{:href => "#"} Action
-          %a.dropdown-item{:href => "#"} Another action
+          = link_to "Create new article", new_article_path, class: "dropdown-item"
+          = link_to "View articles", :articles, class: "dropdown-item"
           .dropdown-divider
           %a.dropdown-item{:href => "#"} Something else here
       %li.nav-item

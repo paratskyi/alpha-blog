@@ -1,6 +1,4 @@
-#page-content
-  %h1.text-center.mt-4 Listing all articles
-
+%h1.text-center.mt-4 Listing all articles
 .container
   - @articles.each do |article|
     .row.justify-content-md-center
@@ -18,3 +16,4 @@
             %small
               Created #{time_ago_in_words(article.created_at)} ago,
               edited #{time_ago_in_words(article.updated_at)} ago
+

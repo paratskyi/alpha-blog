@@ -13,4 +13,5 @@
             = f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description of article"
         .form-group.row.justify-content-center
           = f.submit class: "btn btn-outline-light btn-lg"
-    = link_to '[ Cancel and return to articles listing ]', :articles, class: "text-info"
+    .mb-3
+      = link_to '[ Cancel and return to articles listing ]', :articles, class: "text-info"
