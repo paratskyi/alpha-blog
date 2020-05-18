@@ -1,13 +1,11 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a#logo.navbar-brand{:href => "#"} ALPHA BLOG
+  = link_to "ALPHA BLOG", :root, class: "navbar-brand", id: "logo"
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          Home
-          %span.sr-only (current)
+        = link_to "Articles", :articles, class: "nav-link"
       %li.nav-item
         %a.nav-link{:href => "#"} Link
       %li.nav-item.dropdown
