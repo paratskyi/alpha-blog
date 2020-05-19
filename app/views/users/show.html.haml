@@ -1,0 +1,6 @@
+%h1.text-center.mt-4
+  = @user.username
+  's profile
+= gravatar_for @user, size: 200
+%h3.text-center.mt-4 Articles
+= render 'articles/article'
