@@ -1,0 +1,21 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to "ALPHA BLOG", :root, class: "navbar-brand", id: "logo"
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        %a.nav-link{:href => "#"} Link
+      %li.nav-item.dropdown
+        %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Articles
+        .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+          = link_to "Create new article", new_article_path, class: "dropdown-item"
+          = link_to "View articles", :articles, class: "dropdown-item"
+          .dropdown-divider
+          %a.dropdown-item{:href => "#"} Something else here
+      %li.nav-item
+        %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
+    %form.form-inline.my-2.my-lg-0
+      %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
+      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
