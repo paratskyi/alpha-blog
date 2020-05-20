@@ -10,13 +10,20 @@
         %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Articles
         .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-          = link_to "Create new article", new_article_path, class: "dropdown-item"
+          - if logged_in?
+            = link_to "Create new article", new_article_path, class: "dropdown-item"
           = link_to "View articles", :articles, class: "dropdown-item"
           .dropdown-divider
           %a.dropdown-item{:href => "#"} Something else here
       - if logged_in?
-        %li.nav-item
-          = link_to current_user.username, current_user, class: 'nav-link'
+        %li.nav-item.dropdown
+          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Profile [#{current_user.username}]
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            = link_to "View your profile", current_user, class: "dropdown-item"
+            = link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item"
+            .dropdown-divider
+            %a.dropdown-item{:href => "#"} Something else here
         %li.nav-item
           = link_to 'Logout', :logout, class: 'nav-link', method: :delete
       - else
