@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 # Use HAML for views
 gem 'haml', '~> 5.1', '>= 5.1.2'
+# Includes helpers for rendering pagination links in Rails
+gem 'will_paginate', '~> 3.3'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
