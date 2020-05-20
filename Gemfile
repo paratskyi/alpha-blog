@@ -56,6 +56,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'rubocop', '~> 0.83.0', require: false
+
+  gem 'rubycritic', '~> 4.5'
 end
 
 group :test do
