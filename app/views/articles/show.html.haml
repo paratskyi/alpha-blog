@@ -6,6 +6,7 @@
         .card-header.font-italic
           by
           = @article.user.username if @article.user
+          = link_to gravatar_for(@article.user), @article.user
         .card-body
           .card-text.text-left= simple_format(@article.description)
           = link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info"
