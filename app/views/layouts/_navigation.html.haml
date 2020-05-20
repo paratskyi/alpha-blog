@@ -18,6 +18,8 @@
       - if logged_in?
         %li.nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            - if current_user.admin?
+              (Admin)
             Profile [#{current_user.username}]
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
             = link_to "View your profile", current_user, class: "dropdown-item"
