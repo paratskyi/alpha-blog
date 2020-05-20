@@ -2,8 +2,9 @@
   = @user.username
   's profile
 = gravatar_for @user, size: 200
-.text-center.mt-4
-  = link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info"
+  - if logged_in? && current_user == @user
+    .text-center.mt-4
+      = link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info"
 %h3.text-center.mt-4 Articles
 .flickr_pagination
   = will_paginate @articles, :container => false
