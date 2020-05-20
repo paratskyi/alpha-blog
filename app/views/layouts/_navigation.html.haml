@@ -15,7 +15,9 @@
           .dropdown-divider
           %a.dropdown-item{:href => "#"} Something else here
       %li.nav-item
-        %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
+        = link_to 'Log in', :login, class: 'nav-link'
+      %li.nav-item
+        = link_to 'Logout', :logout, class: 'nav-link', method: :delete
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search

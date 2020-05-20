@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :users, expect: [:new]
   get 'login', to: 'session#new'
   post 'login', to: 'session#create'
-  delete 'login', to: 'session#destroy'
+  delete 'logout', to: 'session#destroy'
 end
