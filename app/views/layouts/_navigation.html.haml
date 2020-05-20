@@ -22,6 +22,7 @@
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
             = link_to "View your profile", current_user, class: "dropdown-item"
             = link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item"
+            = link_to "Delete profile", current_user, class: "dropdown-item text-danger", method: :delete, data: { confirm: "Are you sure?" }
             .dropdown-divider
             %a.dropdown-item{:href => "#"} Something else here
         %li.nav-item
