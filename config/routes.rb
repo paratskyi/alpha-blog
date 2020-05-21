@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'categories/new'
+  get 'categories/index'
+  get 'categories/show'
   get 'session/new'
   get 'users/new'
   root 'pages#home'
