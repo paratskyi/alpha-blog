@@ -5,17 +5,35 @@
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item
-        %a.nav-link{:href => "#"} Link
+        = link_to "Bloggers", :users, class: "nav-link"
       %li.nav-item.dropdown
         %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Articles
         .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-          = link_to "Create new article", new_article_path, class: "dropdown-item"
+          - if logged_in?
+            = link_to "Create new article", new_article_path, class: "dropdown-item"
           = link_to "View articles", :articles, class: "dropdown-item"
           .dropdown-divider
           %a.dropdown-item{:href => "#"} Something else here
-      %li.nav-item
-        %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
+      - if logged_in?
+        %li.nav-item.dropdown
+          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            - if current_user.admin?
+              (Admin)
+            Profile [#{current_user.username}]
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            = link_to "View your profile", current_user, class: "dropdown-item"
+            = link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item"
+            = link_to "Delete profile", current_user, class: "dropdown-item text-danger", method: :delete, data: { confirm: "Are you sure?" }
+            .dropdown-divider
+            %a.dropdown-item{:href => "#"} Something else here
+        %li.nav-item
+          = link_to 'Logout', :logout, class: 'nav-link', method: :delete
+      - else
+        %li.nav-item
+          = link_to 'Log in', :login, class: 'nav-link'
+        %li.nav-item
+          = link_to 'Sign up', :signup, class: 'nav-link'
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
