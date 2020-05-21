@@ -22,4 +22,11 @@ RSpec.describe 'Categories', type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
+  it 'should create category' do
+    expect do
+      post categories_path, params: { category: { name: 'Travel' } }
+    end.to change { Category.count }.by(1)
+    redirect_to(assigns(Category.last))
+  end
 end
