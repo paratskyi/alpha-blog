@@ -29,4 +29,11 @@ RSpec.describe 'Categories', type: :request do
     end.to change { Category.count }.by(1)
     redirect_to(assigns(Category.last))
   end
+
+  it 'should not create category' do
+    expect do
+      post categories_path, params: { category: { name: '' } }
+    end.to change { Category.count }.by(0)
+    redirect_to(assigns(Category.last))
+  end
 end
