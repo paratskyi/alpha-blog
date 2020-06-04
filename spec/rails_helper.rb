@@ -16,7 +16,9 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
-
+def sign_in_as(user)
+  post login_path, params: { session: {email: user.email, password: user.password} }
+end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
