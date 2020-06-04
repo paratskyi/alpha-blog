@@ -7,6 +7,9 @@
           by
           = @article.user.username if @article.user
           = link_to gravatar_for(@article.user), @article.user
+          - if @article.categories.any?
+            .mt-2
+              = render @article.categories
         .card-body
           .card-text.text-left= simple_format(@article.description)
           - if logged_in? && current_user == @article.user || current_user.admin?
