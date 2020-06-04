@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def create
+    binding.pry
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
@@ -43,7 +44,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids: [])
   end
 
   def set_article
@@ -52,7 +53,7 @@ class ArticlesController < ApplicationController
 
   def require_same_user
     return if current_user == @article.user || current_user.admin?
-    
+
     flash[:danger] = 'You can only edit or delete your own article'
     redirect_to @article
   end
