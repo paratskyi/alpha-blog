@@ -7,7 +7,6 @@ SimpleCov.start 'rails' do
   add_filter '/db/'
   add_filter '/spec/' # for rspec
 end
-
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
