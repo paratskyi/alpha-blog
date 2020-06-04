@@ -2,6 +2,6 @@ require 'ffaker'
 
 FactoryBot.define do
   factory :category do
-    name { FFaker::Lorem.characters(3) }
+    name { FFaker::Food.fruit }
   end
 end
