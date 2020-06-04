@@ -4,7 +4,7 @@ RSpec.feature 'Categories', type: :feature do
   let(:category) { FactoryBot.build :category }
 
   it 'visiting the index' do
-    visit categories_path
+    visit :categories
     expect(page).to have_selector('h1', text: 'Categories')
   end
 
@@ -19,7 +19,7 @@ RSpec.feature 'Categories', type: :feature do
     expect(page).to have_content category.name
     # click_button 'Back'
   end
-
+  
   it 'creating a category with invalid submission' do
     # visit :categories
     # click_button 'New Category'
@@ -29,6 +29,14 @@ RSpec.feature 'Categories', type: :feature do
     expect(page).to have_content 'The following errors prevented the category from being saved'
     expect(page).to have_selector('h4.alert-heading')
     # click_button 'Back'
+  end
+
+  it 'should show categories listing' do
+    categories = FactoryBot.create_list(:category, 2)
+    visit :categories
+    categories.each do |category|
+      expect(page).to have_link(category.name, href: category_path(category))
+    end
   end
 
   # it 'updating a Category' do
